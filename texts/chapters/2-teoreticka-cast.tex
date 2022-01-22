@@ -3,38 +3,46 @@
 \section{Pojmy}
 
 \subsection{WebSocket}
+WebSocket je komunikační protokol pro komunikaci mezi serverem a klientem. Výhodou oproti HTTP požadavku je to, že komunikace je na začátku navázána a pak se dají požadavky posílat obousměrně bez jakékoliv prodlevy.
 
 \subsection{Frontend}
+Frontend, neboli přední strana, je webové rozhraní které vidí koncový uživatel. Veškerý kód který se zde odehrává běží u klienta, nikoliv na severu. Uživatel je schopný se podívat na kód, který u něj běží a modifikovat jej.
 
 \subsection{Backend}
+Backend, neboli zadní strana, je kód, který běží na serveru. Na tuto část se pomocí API dotazuje frontend. Uživatel není schopný se podívat na kód a nemůže měnit jeho funkcionalitu.
 
 \subsection{Kompilace}
-
-\subsection{Kontejner}
-A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another. \cite{Kontejner}
+Kompilace je proces, při kterém se člověkem čitelný kód převádí na počítačem čitelný kód, člověkem nikoliv. Většinou není možné získat kód zpět do člověkem čitelné podoby po tom co je zkompilován.
 
 \subsection{Framework}
+Framework je platforma, která poskytuje základ pro vývoj softwareových aplikací. \cite{Framework} Jedná se o základ, který pak programátor rozšiřuje.
 
 \subsection{Komponenta}
-Komponenta je menší část aplikace, která poskytuje určitou funkcionalitu aplikace.
+Komponenta je menší část aplikace, která poskytuje určitou funkcionalitu.
 
 \subsection{Herní engine}
-
-\subsection{Cloud}
+Herní engine je framework pro výtváření počítačových her.
 
 \subsection{VPS}
+VPS (Virtual Private Server) neboli virtuální soukromý počítač je označení pro virtuální počítač, který je prodáván jako služba.
 
 \subsection{API}
+API (Application programming interface) je rozhraní, které umožňuje předávání dat mezi frontendem a backendem.
 
 \subsection{Škálování}
+Škálovatelnost softwaru je měřítko toho, jak jednoduše lze část softwaru zmenšovat nebo zvětšovat. \cite{Skalovani}
 
 \subsection{JSON}
+JSON (JavaScript Object Notation) je datový formát pro výměnu dat. Je jednoduše čitelný člověkem a je to jedna z možností jak pře API rozhraní posílat data. \cite{JSON}
 
 \subsection{Transpilace}
-
-\subsection{Transakce}
+Transpilace je proces, při kterém se vezme zdrojový kód napsaný v jednom programovacím jazyce a je převeden na podobný kód v jiném programovacím jazyce. \cite{Transpilace}
 
 \subsection{Cache}
+Cache, neboli mezipaměť, je úložné místo pro uklávání dočasných dat díky kterým se zrychlují weby, prohlížeče a aplikace. \cite{Cache} Díky tomu se po určitý čas nemusí provádět složité výpočetní operace.
+
+\subsection{Open Source}
+Open source software je software s zdrojovým kódem, který si může kdokoliv stáhnout, upravit nebo vylepšit. \cite{OpenSource}
 
 \section{Technologie}
 
@@ -52,23 +60,31 @@ TODO domyslet
 React.js je JavaScriptový framework pro vývoj uživatelské rozhraní neboli UI. Tvoří se s ním dynamické webové aplikace nebo mobilní aplikace. Vývojářem tohoto frameworku je firma Meta (dříve známá jako firma Facebook). UI je děleno na menší komponenty, které mají svoji funkcionalitu a dají se mezi sebou jednoduše zaměňovat. Díky tomu není například potřeba načíst celou stránku při přechodu na jinou stránku, ale stačí pouze zaměnit komponenty které se na stránce změnily (např hlavička a patička zůstávají stále načteny, ale obsah stránky se změní).
 
 \subsection{Next.js}
-Next.js je JavaScriptový framework stavící na frameworku React.js. Je vytvářen společností Vercel, která pod stejným názvem provozuje i vlastní Cloud. Tento framework usnadňuje vývojáři práci se stránkami a přidává nezpočet výhod nad použitím samothného Reactu.js. Hlavním lákadlem je takzvaný "Server Side Rendering" což znamená, že počáteční kód který, je poslán klientovi, je nejdříve vykreslen na serveru, pak je odeslán v neživé podobě klientovi a až po té, co je stránka načtena tak se z něj stává dynamická stránka pomocí React.js. Mezi další výhody patří například automatická optimalizace velikosti obrázků podle toho, jak velké je klient potřebuje, aby se nemusely posílat zbytečně velké a neoptimalizované obrázky.
+Next.js je JavaScriptový framework stavící na frameworku React.js. Je vytvářen společností Vercel. Tento framework usnadňuje vývojáři práci se stránkami a přidává nezpočet výhod nad použitím samothného Reactu.js. Hlavním lákadlem je takzvaný "Server Side Rendering" což znamená, že počáteční kód který, je poslán klientovi, je nejdříve vykreslen na serveru, pak je odeslán v neživé podobě klientovi a až po té, co je stránka načtena tak se z něj stává dynamická stránka pomocí React.js. Mezi další výhody patří například automatická optimalizace velikosti obrázků podle toho, jak velké je klient potřebuje, aby se nemusely posílat zbytečně velké a neoptimalizované obrázky.
 
 \subsection{Node.js}
 Node.js je backendové prostředí běžící na JavaScriptovém kódu. Výhodou oproti starším programovacím jazykům které běží na serveru např. PHP je, že aplikace neustále běží na pozadí. To umožňuje o dost jednoduší práci s časem (např. načasování určitých událostí neboli Cronjobů) nebo práci v reálném čase pomocí WebSocketů.
 
 \subsection{GraphQL}
-GraphQL je je jazyk pro API rozhraní sloužící pro jednoduchou komunikací mezi aplikací a serverem. Typy dotazů se dělí na 3 skupiny: Query: získání dat ze serveru, Mutation: změna dat na serveru a Subscription: zasílání dat v reálném čase pomocí WebSocketů.
+GraphQL je je jazyk pro API rozhraní sloužící pro jednoduchou komunikací mezi frontendem/aplikací a backendem. Typy dotazů se dělí na 3 skupiny: Query: získání dat ze serveru, Mutation: změna dat na serveru a Subscription: zasílání dat v reálném čase pomocí WebSocketů.
 
 \subsection{MongoDB}
-MongoDB je dokumentová databáze, která je používaná na velké objemy dat. Data jsou zde ukládána do dokumentů ve formátu JSON. Databáze je jednoduše škálovatelná mezi více zařízeními v tak zvaném "Replica Setu" (data jsou kopírovaná mezi všemi zařízením, aby bylo možné při výpadku některého zařízení pokračovat dál v chodu aplikace). Replica set umožňuje i další pokročilé funkce jako například "transakce".
+MongoDB je dokumentová databáze, která je používaná na velké objemy dat. Data jsou zde ukládána do dokumentů ve formátu JSON. Databáze je jednoduše škálovatelná mezi více zařízeními v tak zvaném "Replica Setu" (data jsou kopírovaná mezi všemi zařízením, aby bylo možné při výpadku některého zařízení pokračovat dál v chodu aplikace). Replica set umožňuje i další pokročilé funkce.
 
 \subsection{Redis}
-Redis je databáze fungující na principu klíč a hodnota. Pod nějakým klíčovým slovem si můžeme uložit hodnotu a následně si můžeme tuto hodnotu zobrazit po zadání tohoto klíče. Databáze funguje primárně v operační paměti počítače, takže funguje velmi rychle a je velmi efektivní. Největší využití je pro ukládání do cache aby byl zrychlen chod aplikace. Databáze také podporuje poslouchání na určitých hodnotách a v reálném čase posílání hodnot na poslouchající klienty. Tato funkcionalita je nejideálnější s technologií WebSocket, nebo ideálněji s GraphQL komponentou "Subscription". 
+Redis je databáze fungující na principu klíč a hodnota. Pod nějakým klíčovým slovem si můžeme uložit hodnotu a následně si můžeme tuto hodnotu zobrazit po zadání tohoto klíče. Databáze funguje primárně v operační paměti počítače, takže funguje velmi rychle a je velmi efektivní. Největší využití je pro ukládání do cache aby byl zrychlen chod aplikace. Databáze také podporuje poslouchání na určitých hodnotách a v reálném čase posílání hodnot na poslouchající klienty. Tato funkcionalita je nejideálnější s technologií WebSocket, nebo ideálněji s GraphQL komponentou "Subscription".
+
+\subsection{Flutter}
+Flutter je framework od Googlu pro vytváření krásných, nativních, multiplatformních aplikací z jednoho kódu. \cite{Flutter} Jako programovací jazyk je zde Dart, který vyvýjí také Google. Flutter cílí primárně na zařízení s operačním systémem Android nebo iOS, ale i na Windows, Linux, MacOS nebo web.
+
+\subsection{Kontejner}
+Kontejner je standardizovaná část software ve které je zabalený kód a všechny jeho potřebné závislosti, aby bylo možné aplikaci rychle spuštět a aby byla aplikace konzistentní mezi různými prostředími. \cite{Kontejner}
 
 \subsection{Docker}
+Docker platforma pro vytváření, správu a běh kontejnerů. Pomocí takzvaných "Dockerfile" je možné definovat, jak bude výsledný kontejner sestaven a jak bude fungovat. Lze pomocí něj také spouštět samotné kontejnery ať už námi sestavené tak sestavené komunitou. Díky němu lze spustit v podstatě jakoukoliv aplikaci pomocí jednoho příkazu.
 
 \subsection{Kubernetes}
-Kubernetes, also known as K8s, is an open-source system for automating deployment, scaling, and management of containerized applications. \cite{Kubernetes}
+Kubernetes je platforma pro automatickou správu kontejnerů, jejich škálovatelnosti nebo automatického nasazení při nové verzi. Je přizpůsobena pro běh produkčních aplikací, tím pádem musí být velmi robustní. Původním výrobcem byl Google kvůli jejich platformě GCP (Goole Cloud Platform), ale nyní patří pod Cloud Native Computing Foundation. Díky tomu, že je Kubernetes open-source, vznikají podobné verze, které se trochu liší od původní verze. Příkladem jsou například: K3s, Minikube, OpenShift, Mirantis, Amazon EKS a další.
 
 \subsection{TensorFlow}
+TensorFlow je platforma pro strojové učení. Slouží pro trénování umělé inteligence a vytváření neuronových sítí. Tyto neuronové sítě jsou pak při přiložení vstupních dat využité k predikci. Pro TensorFlow se píše kód primárně v programovacím jazyce Python, ale má i další implementace, například: JavaScript (TensorFlow.js), nebo Java (TensorFlow Lite).
