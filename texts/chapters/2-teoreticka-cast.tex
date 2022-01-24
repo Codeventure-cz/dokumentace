@@ -15,7 +15,7 @@ Backend, neboli zadní strana, je kód, který běží na serveru. Na tuto čás
 Kompilace je proces, při kterém se člověkem čitelný kód převádí na počítačem čitelný kód, člověkem nikoliv. Většinou není možné získat kód zpět do člověkem čitelné podoby po tom co je zkompilován.
 
 \subsection{Framework}
-Framework je platforma, která poskytuje základ pro vývoj softwareových aplikací. \cite{Framework} Jedná se o základ, který pak programátor rozšiřuje.
+Framework je platforma, která poskytuje základ pro vývoj softwareových aplikací. \cite{Framework} Jedná se o šablonu programu, kterou pak programátor rozšiřuje vlastním kódem.
 
 \subsection{Komponenta}
 Komponenta je menší část aplikace, která poskytuje určitou funkcionalitu.
@@ -30,19 +30,19 @@ VPS (Virtual Private Server) neboli virtuální soukromý počítač je označen
 API (Application programming interface) je rozhraní, které umožňuje předávání dat mezi frontendem a backendem.
 
 \subsection{Škálování}
-Škálovatelnost softwaru je měřítko toho, jak jednoduše lze část softwaru zmenšovat nebo zvětšovat. \cite{Skalovani}
+Škálovatelnost softwaru je měřítko toho, jak jednoduše lze část softwaru zmenšovat nebo zvětšovat. \cite{Skalovani} Například když máme moc velké využití backendu tak jsme schopní spustit tento backend na více serverech zároveň.
 
 \subsection{JSON}
-JSON (JavaScript Object Notation) je datový formát pro výměnu dat. Je jednoduše čitelný člověkem a je to jedna z možností jak pře API rozhraní posílat data. \cite{JSON}
+JSON (JavaScript Object Notation) je datový formát pro výměnu dat. Je jednoduše čitelný a je to jedna z možností jak přes API rozhraní posílat data. \cite{JSON}
 
 \subsection{Transpilace}
 Transpilace je proces, při kterém se vezme zdrojový kód napsaný v jednom programovacím jazyce a je převeden na podobný kód v jiném programovacím jazyce. \cite{Transpilace}
 
 \subsection{Cache}
-Cache, neboli mezipaměť, je úložné místo pro uklávání dočasných dat díky kterým se zrychlují weby, prohlížeče a aplikace. \cite{Cache} Díky tomu se po určitý čas nemusí provádět složité výpočetní operace.
+Cache, neboli mezipaměť, je úložné místo pro ukládání dočasných dat díky kterým se zrychlují weby, prohlížeče a aplikace. \cite{Cache} Díky tomu se po určitý čas nemusí provádět složité výpočetní operace.
 
 \subsection{Open Source}
-Open source software je software s zdrojovým kódem, který si může kdokoliv stáhnout, upravit nebo vylepšit. \cite{OpenSource}
+Open source software je software se zdrojovým kódem, který si může kdokoliv stáhnout, upravit nebo vylepšit. \cite{OpenSource}
 
 \section{Technologie}
 
@@ -75,16 +75,16 @@ MongoDB je dokumentová databáze, která je používaná na velké objemy dat. 
 Redis je databáze fungující na principu klíč a hodnota. Pod nějakým klíčovým slovem si můžeme uložit hodnotu a následně si můžeme tuto hodnotu zobrazit po zadání tohoto klíče. Databáze funguje primárně v operační paměti počítače, takže funguje velmi rychle a je velmi efektivní. Největší využití je pro ukládání do cache aby byl zrychlen chod aplikace. Databáze také podporuje poslouchání na určitých hodnotách a v reálném čase posílání hodnot na poslouchající klienty. Tato funkcionalita je nejideálnější s technologií WebSocket, nebo ideálněji s GraphQL komponentou "Subscription".
 
 \subsection{Flutter}
-Flutter je framework od Googlu pro vytváření krásných, nativních, multiplatformních aplikací z jednoho kódu. \cite{Flutter} Jako programovací jazyk je zde Dart, který vyvýjí také Google. Flutter cílí primárně na zařízení s operačním systémem Android nebo iOS, ale i na Windows, Linux, MacOS nebo web.
+Flutter je framework od Googlu pro vytváření krásných, nativních, multiplatformních aplikací z jednoho kódu. \cite{Flutter} Jako programovací jazyk je zde Dart, který vyvýjí také Google. Flutter cílí primárně na zařízení s operačním systémem Android nebo iOS, ale i na Windows, Linux, MacOS nebo web. Výhodou je možnost vykreslení každého pixelu na obrazovce jak chceme.
 
 \subsection{Kontejner}
-Kontejner je standardizovaná část software ve které je zabalený kód a všechny jeho potřebné závislosti, aby bylo možné aplikaci rychle spuštět a aby byla aplikace konzistentní mezi různými prostředími. \cite{Kontejner}
+Kontejner je standardizovaná část softwaru ve které je zabalený kód a všechny jeho potřebné závislosti, aby bylo možné aplikaci rychle spuštět a aby byla aplikace konzistentní mezi různými prostředími. \cite{Kontejner}
 
 \subsection{Docker}
-Docker platforma pro vytváření, správu a běh kontejnerů. Pomocí takzvaných "Dockerfile" je možné definovat, jak bude výsledný kontejner sestaven a jak bude fungovat. Lze pomocí něj také spouštět samotné kontejnery ať už námi sestavené tak sestavené komunitou. Díky němu lze spustit v podstatě jakoukoliv aplikaci pomocí jednoho příkazu.
+Docker je platforma pro vytváření, správu a běh kontejnerů. Pomocí takzvaných "Dockerfile" je možné definovat, jak bude výsledný kontejner sestaven a jak bude fungovat. Lze pomocí něj také spouštět samotné kontejnery ať už námi sestavené tak sestavené komunitou. Díky němu lze spustit v podstatě jakoukoliv aplikaci pomocí jednoho příkazu.
 
 \subsection{Kubernetes}
-Kubernetes je platforma pro automatickou správu kontejnerů, jejich škálovatelnosti nebo automatického nasazení při nové verzi. Je přizpůsobena pro běh produkčních aplikací, tím pádem musí být velmi robustní. Původním výrobcem byl Google kvůli jejich platformě GCP (Goole Cloud Platform), ale nyní patří pod Cloud Native Computing Foundation. Díky tomu, že je Kubernetes open-source, vznikají podobné verze, které se trochu liší od původní verze. Příkladem jsou například: K3s, Minikube, OpenShift, Mirantis, Amazon EKS a další.
+Kubernetes je platforma pro automatickou správu kontejnerů, jejich škálovatelnosti nebo automatického nasazení při nové verzi. Je přizpůsobena pro běh produkčních aplikací, tím pádem je velmi robustní. Je schopen přizpůsobit počet kontejnerů podle aktuální zátěže. Původním výrobcem byl Google kvůli jejich platformě GCP (Goole Cloud Platform), ale nyní patří pod Cloud Native Computing Foundation. Díky tomu, že je Kubernetes open-source, vznikají podobné verze, které se trochu liší od původní verze. Příkladem jsou například: K3s, Minikube, OpenShift, Mirantis, Amazon EKS a další.
 
 \subsection{TensorFlow}
 TensorFlow je platforma pro strojové učení. Slouží pro trénování umělé inteligence a vytváření neuronových sítí. Tyto neuronové sítě jsou pak při přiložení vstupních dat využité k predikci. Pro TensorFlow se píše kód primárně v programovacím jazyce Python, ale má i další implementace, například: JavaScript (TensorFlow.js), nebo Java (TensorFlow Lite).
