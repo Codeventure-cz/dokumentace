@@ -25,6 +25,9 @@ GraphQL je je jazyk pro API rozhraní sloužící pro jednoduchou komunikací me
 \subsection{MongoDB}
 MongoDB je dokumentová databáze, která je používaná na velké objemy dat. Data jsou zde ukládána do dokumentů ve formátu JSON. Databáze je jednoduše škálovatelná mezi více zařízeními v tak zvaném "Replica Setu" (data jsou kopírovaná mezi všemi zařízením, aby bylo možné při výpadku některého zařízení pokračovat dál v chodu aplikace). Replica set umožňuje i další pokročilé funkce.
 
+\subsection{Prisma}
+Prisma je ORM pro TypeScript. Hlavní částí je Prisma Client, která umožňuje komunikaci s databází, ale také Prisma Migrate která v případě SQL databáze dokáže zeditovat databázi tak, aby seděla podle schématu a poslední části Prisma Studio, která umožňuje náhled do uložený dat.\cite{Prisma}
+
 \subsection{Redis}
 Redis je databáze fungující na principu klíč a hodnota. Pod nějakým klíčovým slovem si můžeme uložit hodnotu a následně si můžeme tuto hodnotu zobrazit po zadání tohoto klíče. Databáze funguje primárně v operační paměti počítače, takže funguje velmi rychle a je velmi efektivní. Největší využití je pro ukládání do cache aby byl zrychlen chod aplikace. Databáze také podporuje poslouchání na určitých hodnotách a v reálném čase posílání hodnot na poslouchající klienty. Tato funkcionalita je nejideálnější s technologií WebSocket, nebo ideálněji s GraphQL komponentou "Subscription".
 
