@@ -23,4 +23,17 @@ Pro nastavení rycholosti přehrávání výsledné animace slouží mutace "set
 \subsection{Přihlášení pomocí QR kódu}
 Aby uživatel nemusel psát heslo na chytré televizi nebo na zařízení bez klávesnice, je možné se přihlásit pomocí QR kódu. První se musí zaregistrovat k odposlouchávání zařízení na kterém se chce uživatel přihlásit pomocí subscription s názvem "qrLogin". To bere jako argument text, který je pak hodnota pro přihlášení se. Potom lze z již přihlášeného zařízení zavolat na mutaci "qrLogin" s stejným argumentem jako u subscription.
 
-\subsection{Rozpoznávání obrázků}
+\subsection{Vyhodnocování úrovně}
+Ještě před ukázáním zádání je potřeba zažádat server o čas začátku řešení, aby bylo možné na konci zjistit jak dlouho hráči trvalo vyžešit úroveň.\par
+Samotné vyhodnocování úrovní probíhá v několika krocích viz obrázek \ref{fig:proces-vyhodnocovani}. Tyto kroky jsou rozepsané v následujících podkapitolách.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.3\textwidth]{img/proces.jpg}
+    \caption{Proces vyhodnocování úrovně.}
+    \label{fig:proces-vyhodnocovani}
+\end{figure}
+
+\subsubsection{Validace vstupů}
+\subsubsection{Vyhodnocení pomocí AI}
+\subsubsection{Kontrola syntaxe a vyhodnocení úrovně}
