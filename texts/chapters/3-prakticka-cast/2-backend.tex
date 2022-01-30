@@ -14,9 +14,13 @@ Při ztrátě hesla je pak možné zavolat na mutaci "sendResetPassword" s param
 Kvůli bezpečnosti je také nutné mít možnost uživatelský účet smazat. Pro tento účet slouží mutace "deleteAccount", při které musí být uživatel přihlášen a musí zadat aktuální heslo. Při této akci se nenávratně mažou všechna uživatelská data.
 
 \subsection{Ovládání hry}
-Jako jádro pro komunikaci mezi telefonem a hrou slouží GraphQL Subscription s názvem "unityCommunication". To potřebuje jako argument token s přihlášením, protože při navazování WebSocketu se nezasílá hlavička dotazu.\par
+Jako jádro pro komunikaci mezi telefonem a hrou slouží subscription s názvem "unityCommunication". To potřebuje jako argument token s přihlášením, protože při navazování WebSocketu se nezasílá hlavička dotazu.\par
 Pro získání ostrovů a úrovní slouží query "islands" a "levels". Obě tyto query obsahují číslo ostrovu/levelu, data pro samotnou hru nebo mobilní telefon a úroveň obsahuje navíc počet hvězd, pokud již hráč tento level hrál.\par
 Pro nastavení aktuálního ostrova nebo úrovně se používají mutace "setUnityIsland" a "setUnityLevel". Obě nic nevrací a slouží k zasílání příkazů pro hru v prohlížeči.\par
-Když hra potřebuje načíst ostrovy je potřeba zavolat na mutaci "getUnityIslands". Tato mutace nic nevrátí, ale ihned posílá hráči pomocí subscriptiony data pro vykreslení.
+Když hra potřebuje načíst ostrovy je potřeba zavolat na mutaci "getUnityIslands". Tato mutace nic nevrátí, ale ihned posílá hráči pomocí subscriptiony data pro vykreslení.\par
+Pro nastavení rycholosti přehrávání výsledné animace slouží mutace "setSpeed", pomocí které se dá nastavit rychlost v rozmezí mezi 1x až 10x.
+
+\subsection{Přihlášení pomocí QR kódu}
+Aby uživatel nemusel psát heslo na chytré televizi nebo na zařízení bez klávesnice, je možné se přihlásit pomocí QR kódu. První se musí zaregistrovat k odposlouchávání zařízení na kterém se chce uživatel přihlásit pomocí subscription s názvem "qrLogin". To bere jako argument text, který je pak hodnota pro přihlášení se. Potom lze z již přihlášeného zařízení zavolat na mutaci "qrLogin" s stejným argumentem jako u subscription.
 
 \subsection{Rozpoznávání obrázků}
