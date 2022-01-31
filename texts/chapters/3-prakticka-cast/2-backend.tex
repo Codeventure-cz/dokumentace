@@ -24,7 +24,7 @@ Pro nastavení rycholosti přehrávání výsledné animace slouží mutace "set
 Aby uživatel nemusel psát heslo na chytré televizi nebo na zařízení bez klávesnice, je možné se přihlásit pomocí QR kódu. První se musí zaregistrovat k odposlouchávání zařízení na kterém se chce uživatel přihlásit pomocí subscription s názvem "qrLogin". To bere jako argument text, který je pak hodnota pro přihlášení se. Potom lze z již přihlášeného zařízení zavolat na mutaci "qrLogin" s stejným argumentem jako u subscription.
 
 \subsection{Vyhodnocování úrovně}
-Ještě před ukázáním zádání je potřeba zažádat server o čas začátku řešení, aby bylo možné na konci zjistit jak dlouho hráči trvalo vyžešit úroveň.\par
+Ještě před ukázáním zádání je potřeba zažádat server o čas začátku řešení, aby bylo možné na konci zjistit jak dlouho hráči trvalo vyžešit úroveň. K tomuto účelu slouží query "getTime".\par
 Samotné vyhodnocování úrovní probíhá v několika krocích viz obrázek \ref{fig:proces-vyhodnocovani}. Tyto kroky jsou rozepsané v následujících podkapitolách.
 
 \begin{figure}[h]
@@ -35,5 +35,7 @@ Samotné vyhodnocování úrovní probíhá v několika krocích viz obrázek \r
 \end{figure}
 
 \subsubsection{Validace vstupů}
+Před začátkem vyhodnocování je potřeba zkotrolovat zda všechny údaje sedí. Pro úspěšné projití tímto krokem je potřeba zaslat číslo ostrova a úrovně, čas ve kterém se začínalo řešit a fotografie kartiček. Pro zkontrolování integrity času je použit hash, který musí vycházet. Kdyby ho uživatel nějak změnil nebyl by potom tento čas validní.
+
 \subsubsection{Vyhodnocení pomocí AI}
 \subsubsection{Kontrola syntaxe a vyhodnocení úrovně}
