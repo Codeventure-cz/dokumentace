@@ -6,26 +6,26 @@ Při použití jednoho serveru by bylo možné provozovat GraphQL Subscription p
 Jako databáze byla zvolena databáze MongoDB, kvůli možnosti zpracovávat velké množství dat. Pro propojení backendu a databáze byla použita Prisma. Na dotazy, které by se často opakovaly, by nebylo exektivní se stále dokola dotazovat databáze, proto se určité, často opakované dotazy ukládají do cache paměti Redis.\par
 
 \subsection{Autorizace}
-Pro přístup k většině dotazů je potřeba být přihlášen. Uživatelé se můžou registrovat pomocí mutace "register" a přihlašovat pomocí "login". Při registraci jsou uživateli zkontrolována vstupní data, je vytvořen dokument s hodnotami: \uv{email}, \uv{first name}, \uv{last name} a \uv{password} (heslo je zahashováno pomocí bcrypt\cite{bcrypt}). Po vytvoření vygenerována session a následně vrácen hash s ukrytým ID této session a jménem uživatele. Přihlášení potom funguje velmi podobně jako registrace, ale místo vytváření nového uživatele je vyhledán uživatel se stejným emailem a přiložené heslo je zkontrolováno zda odpovídá hodnotě uložené v databázi.\par
-K přístupu k dotazům, ke kterým je potřeba být přihlášen, je potřeba zaslat v hlavičce dotazu vlastnost s názvem "authorization" s hodnotou "Bearer TOKEN".\par
-Pokud se chce uživatel odhlásit, je třeba spustit mutaci "logout", která smaže aktuální session z databáze aby se s ním nebylo možné dálé hlásit.\par
-Při ztrátě hesla je možné spustit mutaci "sendResetPassword" s parametrem email. Pokud v databázi existuje účet se zadaným emailem tak je na něj zaslán email s odkazem obsahující resetovací token. Pomocí mutace "resetPassword" je při přiložení tohoto tokenu do 10 minut možné heslo změnit.\par
+Pro přístup k většině dotazů je potřeba být přihlášen. Uživatelé se můžou registrovat pomocí mutace \uv{register} a přihlašovat pomocí \uv{login}. Při registraci jsou uživateli zkontrolována vstupní data, je vytvořen dokument s hodnotami: \uv{email}, \uv{first name}, \uv{last name} a \uv{password} (heslo je zahashováno pomocí bcrypt\cite{bcrypt}). Po vytvoření vygenerována session a následně vrácen hash s ukrytým ID této session a jménem uživatele. Přihlášení potom funguje velmi podobně jako registrace, ale místo vytváření nového uživatele je vyhledán uživatel se stejným emailem a přiložené heslo je zkontrolováno zda odpovídá hodnotě uložené v databázi.\par
+K přístupu k dotazům, ke kterým je potřeba být přihlášen, je potřeba zaslat v hlavičce dotazu vlastnost s názvem \uv{authorization} s hodnotou \uv{Bearer TOKEN}.\par
+Pokud se chce uživatel odhlásit, je třeba spustit mutaci \uv{logout}, která smaže aktuální session z databáze aby se s ním nebylo možné dálé hlásit.\par
+Při ztrátě hesla je možné spustit mutaci \uv{sendResetPassword} s parametrem email. Pokud v databázi existuje účet se zadaným emailem tak je na něj zaslán email s odkazem obsahující resetovací token. Pomocí mutace \uv{resetPassword} je při přiložení tohoto tokenu do 10 minut možné heslo změnit.\par
 %TODO Vysvětlit token?
-Kvůli bezpečnosti je také nutné mít možnost uživatelský účet smazat. Pro účel smazání účtu slouží mutace "deleteAccount", při které musí být uživatel přihlášen a musí zadat aktuální heslo. Při této akci se nenávratně mažou všechna uživatelská data.
+Kvůli bezpečnosti je také nutné mít možnost uživatelský účet smazat. Pro účel smazání účtu slouží mutace \uv{deleteAccount}, při které musí být uživatel přihlášen a musí zadat aktuální heslo. Při této akci se nenávratně mažou všechna uživatelská data.
 
 \subsection{Ovládání hry}
-Jako jádro pro komunikaci mezi telefonem a hrou slouží subscription s názvem "unityCommunication". To potřebuje jako argument token s přihlášením, protože při navazování WebSocketu se nezasílá hlavička dotazu.\par
-Pro získání ostrovů a úrovní slouží query "islands" a "levels". Obě tyto query obsahují číslo ostrovu/levelu, data pro samotnou hru nebo mobilní telefon a úroveň obsahuje navíc počet hvězd, pokud již hráč tento level hrál.\par
+Jako jádro pro komunikaci mezi telefonem a hrou slouží subscription s názvem \uv{unityCommunication}. To potřebuje jako argument token s přihlášením, protože při navazování WebSocketu se nezasílá hlavička dotazu.\par
+Pro získání ostrovů a úrovní slouží query \uv{islands} a \uv{levels}. Obě tyto query obsahují číslo ostrovu/levelu, data pro samotnou hru nebo mobilní telefon a úroveň obsahuje navíc počet hvězd, pokud již hráč tento level hrál.\par
 %TODO Vysvětlit části hry
-Pro nastavení aktuálního ostrova nebo úrovně se používají mutace "setUnityIsland" a "setUnityLevel". Obě nic nevrací a slouží k zasílání příkazů pro hru v prohlížeči.\par
-Když hra potřebuje načíst ostrovy je potřeba spustit mutaci "getUnityIslands". Tato mutace nic nevrátí, ale ihned posílá hráči pomocí subscriptiony data pro vykreslení.\par
-Pro nastavení rycholosti přehrávání výsledné animace slouží mutace "setSpeed", pomocí které se dá nastavit rychlost v rozmezí mezi 1x až 10x.
+Pro nastavení aktuálního ostrova nebo úrovně se používají mutace \uv{setUnityIsland} a \uv{setUnityLevel}. Obě nic nevrací a slouží k zasílání příkazů pro hru v prohlížeči.\par
+Když hra potřebuje načíst ostrovy je potřeba spustit mutaci \uv{getUnityIslands}. Tato mutace nic nevrátí, ale ihned posílá hráči pomocí subscriptiony data pro vykreslení.\par
+Pro nastavení rycholosti přehrávání výsledné animace slouží mutace \uv{setSpeed}, pomocí které se dá nastavit rychlost v rozmezí mezi 1x až 10x.
 
 \subsection{Přihlášení pomocí QR kódu}
-Aby uživatel nemusel psát heslo na chytré televizi nebo na zařízení bez klávesnice, nabící server přihlášení pomocí QR kódu. První musí začít poslouchat zařízení na kterém se chce uživatel přihlásit pomocí subscription s názvem "qrLogin". Tato subscription bere jako argument text, který je pak hodnota pro přihlašování. Potom lze z již přihlášeného zařízení sputit mutaci "qrLogin" s stejným argumentem jako u subscription.
+Aby uživatel nemusel psát heslo na chytré televizi nebo na zařízení bez klávesnice, nabící server přihlášení pomocí QR kódu. První musí začít poslouchat zařízení na kterém se chce uživatel přihlásit pomocí subscription s názvem \uv{qrLogin}. Tato subscription bere jako argument text, který je pak hodnota pro přihlašování. Potom lze z již přihlášeného zařízení sputit mutaci \uv{qrLogin} s stejným argumentem jako u subscription.
 
 \subsection{Vyhodnocování úrovně}
-Ještě před ukázáním zádání je potřeba zažádat server o čas začátku řešení, aby bylo možné na konci zjistit jak dlouho hráči trvalo vyžešit úroveň. K tomuto účelu slouží query "getTime".\par
+Ještě před ukázáním zádání je potřeba zažádat server o čas začátku řešení, aby bylo možné na konci zjistit jak dlouho hráči trvalo vyžešit úroveň. K tomuto účelu slouží query \uv{getTime}.\par
 Samotné vyhodnocování úrovní probíhá v několika krocích viz obrázek \ref{fig:proces-vyhodnocovani}. Tyto kroky jsou rozepsané v následujících podkapitolách.
 
 \begin{figure}[h]

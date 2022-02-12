@@ -30,7 +30,7 @@ MongoDB je dokumentová databáze, která je používaná na velké objemy dat. 
 Prisma je ORM framework pro TypeScript. Hlavní částí je Prisma Client, která umožňuje komunikaci s databází, ale také Prisma Migrate která v případě SQL databáze dokáže zeditovat databázi tak, aby seděla podle schématu a poslední části Prisma Studio, která umožňuje náhled do uložený dat.\cite{Prisma}
 
 \subsection{Redis}
-Redis je databáze fungující na principu klíč a hodnota. Pod nějakým klíčovým slovem si můžeme uložit hodnotu a následně si můžeme tuto hodnotu zobrazit po zadání tohoto klíče. Databáze funguje primárně v operační paměti počítače, takže funguje velmi rychle a je velmi efektivní. Největší využití je pro ukládání do cache aby byl zrychlen chod aplikace. Databáze také podporuje poslouchání na určitých hodnotách a v reálném čase posílání hodnot na poslouchající klienty. Tato funkcionalita je nejideálnější s technologií WebSocket, nebo ideálněji s GraphQL komponentou "Subscription".
+Redis je databáze fungující na principu klíč a hodnota. Pod nějakým klíčovým slovem si můžeme uložit hodnotu a následně si můžeme tuto hodnotu zobrazit po zadání tohoto klíče. Databáze funguje primárně v operační paměti počítače, takže funguje velmi rychle a je velmi efektivní. Největší využití je pro ukládání do cache aby byl zrychlen chod aplikace. Databáze také podporuje poslouchání na určitých hodnotách a v reálném čase posílání hodnot na poslouchající klienty. Tato funkcionalita je nejideálnější s technologií WebSocket, nebo ideálněji s GraphQL komponentou \uv{Subscription}.
 
 \subsection{Flutter}
 Flutter je framework od Googlu pro vytváření nativních, multiplatformních aplikací z jednoho kódu. \cite{Flutter} Jako programovací jazyk je zde použit Dart, který vyvýjí také Google. Flutter cílí primárně na zařízení s operačním systémem Android nebo iOS, ale i na Windows, Linux, MacOS nebo web. Výhodou je možnost vykreslení každého pixelu na obrazovce tak, jak chceme.
@@ -40,7 +40,7 @@ Kontejner je standardizovaná část softwaru ve které je zabalený kód a vše
 %TODO Kontejner označen od Koupila?
 
 \subsection{Docker}
-Docker je platforma pro vytváření, správu a běh kontejnerů. Pomocí takzvaných "Dockerfile" je možné definovat, jak bude výsledný kontejner sestaven a jak bude fungovat. Lze pomocí něj také spouštět samotné kontejnery ať už námi sestavené tak sestavené komunitou. Díky němu lze spustit v podstatě jakoukoliv aplikaci pomocí jednoho příkazu.
+Docker je platforma pro vytváření, správu a běh kontejnerů. Pomocí takzvaných \uv{Dockerfile} je možné definovat, jak bude výsledný kontejner sestaven a jak bude fungovat. Lze pomocí něj také spouštět samotné kontejnery ať už námi sestavené tak sestavené komunitou. Díky němu lze spustit v podstatě jakoukoliv aplikaci pomocí jednoho příkazu.
 
 \subsection{Kubernetes}
 Kubernetes je platforma pro automatickou správu kontejnerů, jejich škálovatelnosti nebo automatického nasazení při nové verzi. Platform Kubernetes je schopna přizpůsobit počet kontejnerů podle aktuální zátěže. 
