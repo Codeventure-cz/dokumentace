@@ -10,7 +10,7 @@ Pro přístup k většině dotazů je potřeba být přihlášen. Uživatelé se
 K přístupu k dotazům, ke kterým je potřeba být přihlášen, je potřeba zaslat v hlavičce dotazu vlastnost s názvem "authorization" s hodnotou "Bearer TOKEN".\par
 Pokud se chce uživatel odhlásit tak by měl zavolat na mutaci "logout", která smaže aktuální session z databáze aby se s ním nebylo možné dálé hlásit.\par
 Při ztrátě hesla je pak možné zavolat na mutaci "sendResetPassword" s parametrem email. Pokud na zadaném emailu existuje účet tak je na něj zaslán email s odkazem obsahující resetovací token. Pomocí mutace "resetPassword" je při přiložení tohoto tokenu do 10 minut možné heslo změnit.\par
-%//TODO Vysvětlit token?
+%TODO Vysvětlit token?
 Kvůli bezpečnosti je také nutné mít možnost uživatelský účet smazat. Pro tento účet slouží mutace "deleteAccount", při které musí být uživatel přihlášen a musí zadat aktuální heslo. Při této akci se nenávratně mažou všechna uživatelská data.
 
 \subsection{Ovládání hry}
