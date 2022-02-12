@@ -6,7 +6,7 @@ Při použití jednoho serveru by bylo možné provozovat GraphQL Subscription p
 Jako databáze byla zvolena databáze MongoDB, kvůli možnosti zpracovávat velké množství dat. Pro propojení backendu a databáze byla použita Prisma. Na dotazy, které by se často opakovaly, by nebylo exektivní se stále dokola dotazovat databáze, proto se určité, často opakované dotazy ukládají do cache paměti Redis.\par
 
 \subsection{Autorizace}
-Pro přístup k většině dotazů je potřeba být přihlášen. Uživatelé se můžou registrovat pomocí mutace "register" a přihlašovat pomocí "login". Při registraci jsou uživateli zkontrolována vstupní data, je vytvořen dokument s hodnotami: \uv{email}, \uv{first name}, \uv{last name} a \uv{password} (heslo je zahashováno pomocí bcrypt\cite{bcrypt}). Po vytvoření vygenerována session a následně vrácen hash s ukrytým ID této session a jménem uživatele. Přihlášení potom funguje velmi podobně jako registrace, ale místo vytváření nového uživatele se je vyhledán uživatel se stejným emailem a kontroluje se jestli přiložené heslo odpovídá hodnotě uložené v databázi.\par
+Pro přístup k většině dotazů je potřeba být přihlášen. Uživatelé se můžou registrovat pomocí mutace "register" a přihlašovat pomocí "login". Při registraci jsou uživateli zkontrolována vstupní data, je vytvořen dokument s hodnotami: \uv{email}, \uv{first name}, \uv{last name} a \uv{password} (heslo je zahashováno pomocí bcrypt\cite{bcrypt}). Po vytvoření vygenerována session a následně vrácen hash s ukrytým ID této session a jménem uživatele. Přihlášení potom funguje velmi podobně jako registrace, ale místo vytváření nového uživatele je vyhledán uživatel se stejným emailem a přiložené heslo je zkontrolováno zda odpovídá hodnotě uložené v databázi.\par
 K přístupu k dotazům, ke kterým je potřeba být přihlášen, je potřeba zaslat v hlavičce dotazu vlastnost s názvem "authorization" s hodnotou "Bearer TOKEN".\par
 Pokud se chce uživatel odhlásit, je třeba spustit mutaci "logout", která smaže aktuální session z databáze aby se s ním nebylo možné dálé hlásit.\par
 Při ztrátě hesla je možné spustit mutaci "sendResetPassword" s parametrem email. Pokud v databázi existuje účet se zadaným emailem tak je na něj zaslán email s odkazem obsahující resetovací token. Pomocí mutace "resetPassword" je při přiložení tohoto tokenu do 10 minut možné heslo změnit.\par
@@ -36,7 +36,14 @@ Samotné vyhodnocování úrovní probíhá v několika krocích viz obrázek \r
 \end{figure}
 
 \subsubsection{Validace vstupů}
-Před začátkem vyhodnocování je potřeba zkotrolovat zda všechny údaje sedí. Pro úspěšnou validaci je potřeba zaslat číslo ostrova a úrovně, čas ve kterém se začínalo řešit a fotografie kartiček. Pro zkontrolování integrity času je použit hash, kterému musí kontrolní součet. Kdyby ho uživatel nějak změnil nebyl by potom tento čas validní.
+Před začátkem vyhodnocování je potřeba zkotrolovat zda všechny údaje sedí. Pro úspěšnou validaci je potřeba zaslat číslo ostrova a úrovně, čas ve kterém se začínalo řešit a fotografie kartiček. Pro zkontrolování integrity času je použit hash, kterému musí sedět kontrolní součet. Kdyby ho uživatel nějak změnil, nebyl by potom tento čas validní.
 
 \subsubsection{Vyhodnocení pomocí AI}
+Po zvalidování vstupů je potřeba vyhodnotit data na obrázku. Pro tento účel slouží samostatný vyhodnocovací backend, na kterém běží Express.js a TensorFlow.js. Na tomto backendu je uložen vytrénovaný model pomocí Custom Vision od Microsoftu. Tento backend není veřejně přístupný a zavolat na něj může pouze hlavní backend.\par
+Hlavní backend po přijetí obrázku zasílá tento obrázek na vyhodnocovací backned pomocí API rozhraní. Po úspěšném vyhodnocení jsou vráceny informace: jak jsou kartičky průměrně velké a pole, kde a s jakou přesností se konkrétní kartička nachází.
+
 \subsubsection{Kontrola syntaxe a vyhodnocení úrovně}
+Po vyhodnocení obrázku je provedena kontrola syntaxe a vyhodnocení úrovně.\par
+Nejprve je potřeba zkontrolovat, zda rozpoznané kartičky obsahují \uv{Start} a \uv{Konec}. Dále je vypočítána přímka mezi těmito dvěma body a jsou získány kartičky které na této přímce leží (pomocí průměrné velikosti kartiček si lze vypočítat toleranci od přímky). Pak jsou pomocí pravého úhlu dopočítány přímky pro tyto kartičky a jsou k nim přiřazeny rozšiřující kartičky.\par
+Když se někde vyskytne synkatická chyba (chybí kartička \uv{Start} nebo \uv{Konec}, kartička je na místě na kterém být nemůže) je hráři oznámeno, co udělal špatně a pokus je vyhodnocen jako neúspěšný.\par
+Poslední částí je vyhodnocení úrovně. Pro tuto část je potřeba získat z databáze data o tom, jak úroveň vypadá. Server prochází úroveň krok po kroku a z toho zjišťuje jak si hráč vede. Nakonec server odesílá data o výsledku zpět do kontroléru a na frontend, kde se hráč dozví jak si vedl.
