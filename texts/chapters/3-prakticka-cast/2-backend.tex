@@ -47,3 +47,8 @@ Po vyhodnocení obrázku je provedena kontrola syntaxe a vyhodnocení úrovně.\
 Nejprve je potřeba zkontrolovat, zda rozpoznané kartičky obsahují \uv{Start} a \uv{Konec}. Dále je vypočítána přímka mezi těmito dvěma body a jsou získány kartičky které na této přímce leží (pomocí průměrné velikosti kartiček si lze vypočítat toleranci od přímky). Pak jsou pomocí pravého úhlu dopočítány přímky pro tyto kartičky a jsou k nim přiřazeny rozšiřující kartičky.\par
 Když se někde vyskytne synkatická chyba (chybí kartička \uv{Start} nebo \uv{Konec}, kartička je na místě na kterém být nemůže) je hráři oznámeno, co udělal špatně a pokus je vyhodnocen jako neúspěšný.\par
 Poslední částí je vyhodnocení úrovně. Pro tuto část je potřeba získat z databáze data o tom, jak úroveň vypadá. Server prochází úroveň krok po kroku a z toho zjišťuje jak si hráč vede. Nakonec server odesílá data o výsledku zpět do kontroléru a na frontend, kde se hráč dozví jak si vedl.
+
+\subsection{Nasazení na server}
+Nasazení na server je klíčový krok, který určuje zda je celá hra hratelná. Pro vytvoření vždy identického prostředí je potřeba votvořit kontejner, který obsahuje pouze data potřebná k běhu služby.\par
+Pro vytvoření kontejnerů je použit Docker. Pomocí takzvaného \uv{Dockerfile} je zadefinován postup jak backend sestavit, který když následně sestavíme, dostaneme balík, který je možné kdekoliv sputit. Tento proces je vykonán jak u hlavního backendu, ale i u vyhodnocovacího backendu.\par
+K následnému nasazení na server je použita platform Kubernetes, konkrétně K3s, která se stará o kontejnery, zajišťuje síťovou komunikaci a rozprostřívá zátěž mezi servery.
