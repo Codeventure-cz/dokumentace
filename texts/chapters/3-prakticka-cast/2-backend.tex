@@ -36,7 +36,7 @@ Samotné vyhodnocování úrovní probíhá v několika krocích viz obrázek \r
 \end{figure}
 
 \subsubsection{Validace vstupů}
-Před začátkem vyhodnocování je potřeba zkotrolovat zda všechny údaje sedí. Pro úspěšnou validaci je potřeba zaslat číslo ostrova a úrovně, čas ve kterém se začínalo řešit a fotografie kartiček. Pro zkontrolování integrity času je použit hash, kterému musí sedět kontrolní součet. Kdyby ho uživatel nějak změnil, nebyl by potom tento čas validní.
+Před začátkem vyhodnocování je potřeba zkotrolovat, zda všechny údaje sedí. Pro úspěšnou validaci je potřeba zaslat číslo ostrova a úrovně, čas ve kterém se začínalo řešit a fotografie kartiček. Pro zkontrolování integrity času je použit hash, kterému musí sedět kontrolní součet. Kdyby ho uživatel nějak změnil, nebyl by potom tento čas validní.
 
 \subsubsection{Vyhodnocení pomocí AI}
 Po zvalidování vstupů je potřeba vyhodnotit data na obrázku. Pro tento účel slouží samostatný vyhodnocovací backend, na kterém běží Express.js a TensorFlow.js. Na tomto backendu je uložen vytrénovaný model pomocí Custom Vision od Microsoftu. Tento backend není veřejně přístupný a zavolat na něj může pouze hlavní backend.\par
