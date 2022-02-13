@@ -1,5 +1,9 @@
 \section{Aplikace}
+Mobilní aplikace je největší část, se kterou uživatel interaguje. Uživatel přes tuto část ovládá veškeré chování hry (hru jinak nejde ovládat), vybírá úrovně a skenuje svoje řešení pomocí fotoaparátu. Naprogramovaná je pomocí programovacího jazyku Dart s frameworkem Flutter. 
 
 \subsection{Autorizace}
+Autorizace se jako u webu provádí pomocí GraphQL mutace \uv{login}. Tento token je pak uložen v úložišti telefonu zvaném \uv{SharedPreferences}\cite{SharedPreferences} nebo na zařízeních s iOS v \uv{NSUserDefaults}\cite{NSUserDefaults}. Pomocí tohoto tokenu je zařízení autentifikováno vůči serveru.
 
 \subsection{Skenování}
+Pro focení slouží knihovna \uv{image\_picker}\cite{ImagePicker}. Tato knihovna využívá hlavní aplikaci na focení od výrobce, díky čemu mají fotografie vysokou kvalitu.\par
+Nejdříve je potřeba, aby uživatel zvolil ostrov a úroveň. Po odstartování pokusu se uživateli otevírá aplikace s fotoaparátem a je potřeba vyfotit své řešení úrovně. Po pořízení je fotografie zmenšena do menší velikosti z kapacitních důvodů přenosu na server. Takto zmenšená fotografie je zaslána na server s potřebnými parametry na mutaci \uv{levelResult}. Na tento dotaz do několika vřeřin odpoví s výsledkem.

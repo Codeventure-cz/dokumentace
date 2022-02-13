@@ -7,9 +7,9 @@ Aby byl web co nejrychlejší je potřeba, aby všechny části byly předem vyg
 Pro co nejrychlejší a nespolehlivější běh webu je potřeba jej umístit na nějaký server, který bude schopen rychle odpovídat velkému množství lidí. Pro tento účel byl vybrán hosting Cloudflare Pages\cite{Cloudflare-pages} s jejich vlastní CDN\cite{Cloudflare-cdn}. 
 
 \subsection{Správá účtu}
-Důležitou částí webu je přihlašovací systém a následná správa účtu. Pro přihlášení je možné použít email a heslo nebo QR kód, který se dá naskenovat pomocí mobilní aplikace. Dále je zde možnost zaregistrovat se a resetovat heslo pomocí zaslání emailu.\par
-Když je uživatel přihlášen, je možné odhlási se nebo aktuální účet smazat.
+Důležitou částí webu je přihlašovací systém a následná správa účtu. Pro přihlášení je možné použít email a heslo (pomocí GraphQL mutace \uv{login}) nebo QR kód, který se dá naskenovat pomocí mobilní aplikace (subscription \uv{qrLogin} a stejnojmenná mutace). Dále je zde možnost zaregistrovat se (mutace \uv{register}) a resetovat heslo pomocí zaslání emailu (mutace \uv{sendResetPassword}).\par
+Když je uživatel přihlášen, je možné odhlásit se (mutace \uv{logout}) nebo aktuální účet smazat (mutace \uv{deleteAccount}).
 
 \subsection{Hra}
-Jelikož je hra vytvořena pomocí Unity je potřeba ji zaintegrovat do webového rozhraní, aby si uživatel nevšimnul, že přešel do jiného prostředí. Pro tento účel slouží knihovna \uv{react-unity-webgl}\cite{react-unity-webgl}, která poskytuje integraci kódu v Unity s Reactím kódem.\par
+Jelikož je hra vytvořena pomocí Unity je potřeba ji zaintegrovat do webového rozhraní tak, aby si uživatel nevšimnul, že přešel do jiného prostředí. Pro tento účel slouží knihovna \uv{react-unity-webgl}\cite{react-unity-webgl}, která poskytuje integraci kódu v Unity s Reactím kódem. Komunikaci mezi backendem a hrou obsluhuje subscription \uv{unityCommunication}\par
 Informace o vnitřním fungování hry jsou rozepsané v další pod kapitole.
