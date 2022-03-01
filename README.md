@@ -10,4 +10,3 @@ Na tomoto projektu je GitHub Action která automaticky při každému releasu ge
 - Dopsat technickou část
 - Dopsat teoretickou část
 - Doplnit obrázky
-- Přepsat query, mutace a subscription na GraphQL ...
