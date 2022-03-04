@@ -14,7 +14,7 @@ Při ztrátě hesla je možné spustit mutaci \uv{sendResetPassword} s parametre
 Kvůli bezpečnosti je také nutné mít možnost uživatelský účet smazat. Pro účel smazání účtu slouží GraphQL mutace \uv{deleteAccount}, při které musí být uživatel přihlášen a musí zadat aktuální heslo. Při této akci se nenávratně mažou všechna uživatelská data.
 
 \subsubsection{Ovládání hry}
-Jako jádro pro komunikaci mezi telefonem a hrou slouží GraphQL subscription s názvem \uv{unityCommunication}. To potřebuje jako argument token s přihlášením, protože při navazování WebSocketu se nezasílá hlavička dotazu.\par
+Jako jádro pro komunikaci mezi telefonem a hrou slouží GraphQL subscription s názvem \uv{unityCommunication}. Jako argument je potřeba token s přihlášením, protože při navazování WebSocketu se nezasílá hlavička dotazu.\par
 Pro získání ostrovů a úrovní slouží GraphQL query \uv{islands} a \uv{levels}. Obě tyto query obsahují číslo ostrovu/levelu, data pro samotnou hru nebo mobilní telefon a úroveň obsahuje navíc počet hvězd, pokud již hráč tento level hrál.\par
 %TODO Vysvětlit části hry
 K nastavení aktuálního ostrova nebo úrovně se používají GraphQL mutace \uv{setUnityIsland} a \uv{setUnityLevel}. Obě nic nevrací a slouží k zasílání příkazů pro hru v prohlížeči.\par
@@ -44,7 +44,7 @@ Po přijetí obrázku jej hlavní backend zasílá pomocí API rozhraní backend
 
 \subsubsubsection{Kontrola syntaxe a vyhodnocení úrovně}
 Po vyhodnocení obrázku je provedena kontrola syntaxe a vyhodnocení úrovně.\par
-Nejprve je potřeba zkontrolovat, zda rozpoznané kartičky obsahují \uv{Start} a \uv{Konec}. Dále je vypočítána přímka mezi těmito dvěma body a jsou získány kartičky které na této přímce leží (pomocí průměrné velikosti kartiček si lze vypočítat toleranci od přímky). Pak jsou pomocí pravého úhlu dopočítány přímky pro tyto kartičky a jsou k nim přiřazeny rozšiřující kartičky.\par
+Nejprve je potřeba zkontrolovat, zda rozpoznané kartičky obsahují \uv{Start} a \uv{Konec}. Dále je vypočítána přímka mezi dvěma body a jsou získány kartičky které na této přímce leží (pomocí průměrné velikosti kartiček si lze vypočítat toleranci od přímky). Pak jsou pomocí pravého úhlu dopočítány přímky pro tyto kartičky a jsou k nim přiřazeny rozšiřující kartičky.\par
 Když se někde vyskytne synkatická chyba (chybí kartička \uv{Start} nebo \uv{Konec}, kartička je na místě na kterém být nemůže) je hráči oznámeno, co udělal špatně a pokus je vyhodnocen jako neúspěšný.\par
 Poslední částí je vyhodnocení úrovně. Pro tuto část je potřeba získat z databáze data o tom, jak úroveň vypadá. Server prochází úroveň krok po kroku a z toho zjišťuje jak si hráč vede. Nakonec server odesílá data o výsledku zpět do kontroléru a na frontend, kde se hráč dozví celkové hodnocení.
 
