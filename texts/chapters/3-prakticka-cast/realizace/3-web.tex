@@ -7,7 +7,7 @@ Celkový Frontend webové aplikace je navržen a řádně otestován softwarem \
 \subsubsection{Statická část}
 Web je postaven na frameworku Next.js, který používá pro zobrazování React.js. Cílem bylo vytvořit web co nejrychlejší a nejspolehlivější.\par
 Aby byl web co nejrychlejší je potřeba, aby všechny části byly předem vygenerované a aby nebylo nuté zbytečně čekat při dotazu. Next.js v základu stavu počítá s tím, že obrázky jsou optimalizované při času jejich dotazu. Tato funkce je užitečná na stránkách s proměnlivým obsahem, nikoliv na staticky generovaných stránkách. Proto jsme aplikovali trochu netradiční řešení, a to optimalizace obrázků při generování webu. Díky tomu není potřeba žádný speciální server a je potřeba jen všechny soubory někam umístit.\par
-Pro co nejrychlejší a nespolehlivější běh webu je potřeba jej umístit na nějaký server, který bude schopen rychle odpovídat velkému množství lidí. Pro tento účel byl vybrán hosting Cloudflare Pages\cite{Cloudflare-pages} s jejich vlastní CDN\cite{Cloudflare-cdn}. 
+Pro co nejrychlejší a nespolehlivější běh webu je potřeba jej umístit na takový server, který bude schopen rychle odpovídat velkému množství lidí. Pro tento účel byl vybrán hosting Cloudflare Pages\cite{Cloudflare-pages} s jejich vlastní CDN\cite{Cloudflare-cdn}. 
 
 \subsubsection{Správá účtu}
 Důležitou částí webu je přihlašovací systém a následná správa účtu. Pro přihlášení je možné použít email a heslo (pomocí GraphQL mutace \uv{login}) nebo QR kód, který se dá naskenovat pomocí mobilní aplikace (GraphQL subscription \uv{qrLogin} a stejnojmenná GraphQL mutace). Dále je zde možnost zaregistrovat se (mutace \uv{register}) a resetovat heslo pomocí zaslání emailu (mutace \uv{sendResetPassword}).\par
@@ -15,7 +15,7 @@ Když je uživatel přihlášen, je možné odhlásit se (mutace \uv{logout}) ne
 
 \subsubsection{Hra}
 Hra je vytvořena pomocí herního enginu Unity. Aby bylo možné ji spustit v prohlížečí, je zde použita možnost exportu do webového prostředí zvaná \uv{WebGL}.
-Pro následovnou integraci Unity do webového prostředí slouží knihovna \uv{react-unity-webgl}\cite{react-unity-webgl}, která poskytuje integraci kódu v Unity s Reactím kódem.
+Pro následovnou integraci Unity do webového prostředí slouží knihovna \uv{react-unity-webgl}\cite{react-unity-webgl}, která poskytuje integraci kódu v Unity s kódem v Reactu.
 
 \subsubsubsection{Komunikace}
 Klíčovou funkcí hry je komunikace mezi backendem a hrou tak, aby bylo možné zobrazovat úkony hráče. Tuto práci výrazně zlehčuje již zmíněná knihovna \uv{react-unity-webgl}\cite{react-unity-webgl}. Díky této knihovně není třeba komunikovat s backendem dalším způsobem a je možné použít již existující spojení mezi frontendem a backendem.\par

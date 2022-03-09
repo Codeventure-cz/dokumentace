@@ -45,7 +45,7 @@ Po přijetí obrázku jej hlavní backend zasílá pomocí API rozhraní backend
 \subsubsubsection{Kontrola syntaxe a vyhodnocení úrovně}
 Po vyhodnocení obrázku je provedena kontrola syntaxe a vyhodnocení úrovně.\par
 Nejprve je potřeba zkontrolovat, zda rozpoznané kartičky obsahují \uv{Start} a \uv{Konec}. Dále je vypočítána přímka mezi dvěma body a jsou získány kartičky které na této přímce leží (pomocí průměrné velikosti kartiček si lze vypočítat toleranci od přímky). Pak jsou pomocí pravého úhlu dopočítány přímky pro tyto kartičky a jsou k nim přiřazeny rozšiřující kartičky.\par
-Když se někde vyskytne synkatická chyba (chybí kartička \uv{Start} nebo \uv{Konec}, kartička je na místě na kterém být nemůže) je hráči oznámeno, co udělal špatně a pokus je vyhodnocen jako neúspěšný.\par
+Když se někde vyskytne synkatická chyba (chybí kartička \uv{Start} nebo \uv{Konec}, kartička je na místě, na kterém být nemůže) je hráči oznámeno, co udělal špatně a pokus je vyhodnocen jako neúspěšný.\par
 Poslední částí je vyhodnocení úrovně. Pro tuto část je potřeba získat z databáze data o tom, jak úroveň vypadá. Server prochází úroveň krok po kroku a z toho zjišťuje jak si hráč vede. Nakonec server odesílá data o výsledku zpět do kontroléru a na frontend, kde se hráč dozví celkové hodnocení.
 
 \subsubsection{Nasazení na server}
