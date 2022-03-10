@@ -40,7 +40,7 @@ Před začátkem vyhodnocování je potřeba zkotrolovat, zda jsou všechny úda
 
 \subsubsubsection{Vyhodnocení pomocí AI}
 Po zvalidování vstupů je potřeba vyhodnotit data na obrázku. Pro tento účel slouží samostatný vyhodnocovací backend, na kterém běží Express.js a TensorFlow.js. Na tomto backendu je uložen model vytrénovaný pomocí služby Microsoft Custom Vision. Tento backend není veřejně přístupný a komunikovat s ním může pouze hlavní backend.\par
-Po přijetí obrázku jej hlavní backend zasílá pomocí API rozhraní backendu vyhodnocovacímu. Po úspěšném vyhodnocení jsou vráceny informace o tom, jak jsou kartičky průměrně velké, a pole s údaji kde a s jakou přesností se konkrétní kartička nachází.
+Po přijetí obrázku jej hlavní backend zasílá pomocí API rozhraní backendu vyhodnocovacímu. Po úspěšném vyhodnocení jsou vráceny informace o tom, jak jsou kartičky průměrně velké, a pole s údaji, kde a s jakou přesností se konkrétní kartička nachází.
 
 \subsubsubsection{Kontrola syntaxe a vyhodnocení úrovně}
 Po vyhodnocení obrázku je provedena kontrola syntaxe a vyhodnocení úrovně.\par
