@@ -1,5 +1,5 @@
 Zabezpečení je důležitou částí každé webové aplikace. Kvůli rozlehlosti tohoto projektu je potřeba, aby byla každá část zabezpečená ve všech ohledech.\par
-Nejvíce zranitelná část je část webová. Nejvýznamnější bezpečností risky zaznamenává nadace OWASP\cite{OWASP} s jejich seznamem \uv{Top 10 Web Application Security Risks}\cite{OWASP-top-ten}. V seznamu je 10 nejčastějších bezpečnostích rizik, které byly za posledních pár let nejfrekventovanější.\par
+Nejvíce zranitelná část je část webová. Nejvýznamnější bezpečností rizika zaznamenává nadace OWASP\cite{OWASP} s jejich seznamem \uv{Top 10 Web Application Security Risks}\cite{OWASP-top-ten}. V seznamu je 10 nejčastějších bezpečnostích rizik, ktereeá byla v posledních letech nejfrekventovanější.\par
 Backendová i frontendová část má většinu těchto chyb odlazených a neměly by být zneužitelné. Zde jsou konkrétní příklady některých bodů:
 \begin{itemize}
 	\item \textbf{Kryptografické selhání}\cite{CryptographicFailures}: Všechny části předpokládají komunikaci pomocí šifrovaného protokolu (HTTPS). Certifikáty jsou podepsané od kryptografických autorit - Let's Encrypt a Cloudflare. Hesla jsou v databázi hashovaná pomocí šifrovací funkce \uv{bcrypt}\cite{bcrypt}.
