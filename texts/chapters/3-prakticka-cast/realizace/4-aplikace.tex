@@ -5,5 +5,5 @@ Mobilní aplikace je největší část, se kterou uživatel interaguje. Uživat
 Autorizace se jako u webu provádí pomocí GraphQL mutace \uv{login}. Tento token je pak uložen v úložišti telefonu zvaném \uv{SharedPreferences}\cite{SharedPreferences} nebo na zařízeních s iOS v \uv{NSUserDefaults}\cite{NSUserDefaults}. Pomocí tohoto tokenu je zařízení autentifikováno vůči serveru.
 
 \subsubsection{Skenování}
-Pro focení slouží knihovna \uv{image\_picker}\cite{ImagePicker}. Tato knihovna využívá hlavní aplikaci na focení od výrobce, díky čemu mají fotografie vysokou kvalitu.\par
-Nejdříve je potřeba, aby uživatel zvolil ostrov a úroveň. Po odstartování pokusu se uživateli otevírá aplikace s fotoaparátem a je potřeba vyfotit své řešení úrovně. Následovně je fotografie z kapacitních důvodů zmenšena. Takto zmenšená fotografie je zaslána na server s potřebnými parametry mutaci \uv{levelResult}. Server tento dotaz během pár vteřin zpracuje a zasílá hráči celkové hodnocení.
+Pro focení slouží knihovna \uv{image\_picker}\cite{ImagePicker}. Tato knihovna využívá hlavní aplikaci na focení od výrobce, díky čemuž mají fotografie vysokou kvalitu.\par
+Nejdříve je potřeba, aby uživatel zvolil ostrov a úroveň. Po odstartování pokusu se uživateli otevírá aplikace s fotoaparátem a je potřeba vyfotit své řešení úrovně. Následovně je fotografie z kapacitních důvodů zmenšena. Takto zmenšená fotografie je zaslána na server s potřebnými parametry mutací \uv{levelResult}. Server tento dotaz během pár vteřin zpracuje a zasílá hráči celkové hodnocení.

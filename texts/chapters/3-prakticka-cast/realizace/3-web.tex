@@ -6,7 +6,7 @@ Celkový Frontend webové aplikace je navržen a řádně otestován softwarem \
 
 \subsubsection{Statická část}
 Web je postaven na frameworku Next.js, který používá pro zobrazování React.js. Cílem bylo vytvořit web co nejrychlejší a nejspolehlivější.\par
-Aby byl web co nejrychlejší, je potřeba, aby všechny části byly předem vygenerované a aby nebylo nuté zbytečně čekat při dotazu. Next.js v základu stavu počítá s tím, že obrázky jsou optimalizované při času jejich dotazu. Tato funkce je užitečná na stránkách s proměnlivým obsahem, nikoliv na staticky generovaných stránkách. Proto jsme aplikovali trochu netradiční řešení, a to optimalizace obrázků při generování webu. Díky tomu není potřeba žádný speciální server a je potřeba jen všechny soubory někam umístit.\par
+Aby byl web co nejrychlejší, je potřeba, aby všechny části byly předem vygenerované a aby nebylo nuté zbytečně čekat při dotazu. Next.js v základním stavu počítá s tím, že obrázky jsou optimalizované při času jejich dotazu. Tato funkce je užitečná na stránkách s proměnlivým obsahem, nikoliv na staticky generovaných stránkách. Proto jsme aplikovali trochu netradiční řešení, a to optimalizaci obrázků při generování webu. Díky tomu není potřeba žádný speciální server a je potřeba jen všechny soubory někam umístit.\par
 Pro co nejrychlejší a nespolehlivější běh webu je potřeba umístit jej na takový server, který bude schopen rychle odpovídat velkému množství lidí. Pro tento účel byl vybrán hosting Cloudflare Pages\cite{Cloudflare-pages} s jejich vlastní CDN\cite{Cloudflare-cdn}. 
 
 \subsubsection{Správá účtu}
@@ -15,15 +15,15 @@ Když je uživatel přihlášen, je možné odhlásit se (mutace \uv{logout}) ne
 
 \subsubsection{Hra}
 Hra je vytvořena pomocí herního enginu Unity. Aby bylo možné ji spustit v prohlížeči, je zde použita možnost exportu do webového prostředí zvaná \uv{WebGL}.
-Pro následovnou integraci Unity do webového prostředí slouží knihovna \uv{react-unity-webgl}\cite{react-unity-webgl}, která poskytuje integraci kódu v Unity s kódem v Reactu.
+Pro následnou integraci Unity do webového prostředí slouží knihovna \uv{react-unity-webgl}\cite{react-unity-webgl}, která poskytuje integraci kódu v Unity s kódem v Reactu.
 
 \subsubsubsection{Komunikace}
 Klíčovou funkcí hry je komunikace mezi backendem a hrou tak, aby bylo možné zobrazovat úkony hráče. Tuto práci výrazně zlehčuje již zmíněná knihovna \uv{react-unity-webgl}\cite{react-unity-webgl}. Díky této knihovně není třeba komunikovat s backendem dalším způsobem a je možné použít již existující spojení mezi frontendem a backendem.\par
-Komunikace pak může probíhat oběma směry. Směr \uv{hra na backend} je použit pouze jednou, a to při načtení, když hra potřebuje vykreslit ostrovy. Této akce je docíleno pomocí připravené funkce v Reactu, která prostřednictvím GraphQL mutace \uv{getUnityIslands} kontaktuje server, aby zaslal zpět nové ostrovy. Tuto funkci lze použít pomocí Unity metody \uv{GetIslands}.\par
+Komunikace pak může probíhat oběma směry. Směr \uv{hra na backend} je použit pouze jednou, a to při načtení - když hra potřebuje vykreslit ostrovy. Této akce je docíleno pomocí připravené funkce v Reactu, která prostřednictvím GraphQL mutace \uv{getUnityIslands} kontaktuje server, aby zaslal zpět nové ostrovy. Tuto funkci lze použít pomocí Unity metody \uv{GetIslands}.\par
 Druhý směr komunikace je častější, a to \uv{backend na hru}. Pro tento směr je potřeba nejdříve navázat spojení pomocí GraphQL subscription \uv{unityCommunication}. Backend má pak možnost provést jakoukoliv veřejnou metodu umístěnou v komunikačním skriptu. Jako argument může přiložit data, která chce předat. Tato data jsou ve formátu JSON a je třeba je po přijetí deserializovat. Používá se například pro přejetí kamery na jiný ostrov, nebo nastavení objektů do scény se zadáním.
 
 \subsubsubsection{Načítání modelů}
-Aby byla hra co nejmenší a aby se nenačítala velmi dlouho, je potřeba rozdělit části hry do více částí a následně tyto části načítat podle potřeby hráče. Pro tento účel slouží balíčkový systém zvaný \uv{AssetBundle}\cite{AssetBundle}. V následných balíčcích jsou obsažené modely a animace k jednotlivým ostrovům, které se načítají podle toho, co uživatel zvolí na kontroléru.
+Aby byla hra co nejmenší a aby se nenačítala velmi dlouho, je potřeba rozdělit hru do více částí a následně tyto části načítat podle potřeby hráče. Pro tento účel slouží balíčkový systém zvaný \uv{AssetBundle}\cite{AssetBundle}. V následných balíčcích jsou obsaženy modely a animace k jednotlivým ostrovům, které se načítají podle toho, co uživatel zvolí na kontroléru.
 
 \subsubsubsection{Animace}
 Poslední důležitou částí jsou animace. Animace jsou přidávány na modely pomocí koster. Díky tomu je možné použít jeden model s více animacemi. Připojené animace jsou pak spouštěny pomocí koprogramů, které si navzájem předávají informace. 
