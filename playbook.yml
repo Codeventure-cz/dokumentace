@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  connection: local
+
+  tasks:
+    - name: "Find all files"
+      find:
+        paths: '{{ playbook_dir }}'
+        patterns: '*.tex'
+        recurse: yes
+      register: files
+    - name: Fix all files
+      command: 'vlna -l {{ item.path }}'
+      loop: '{{ files.files }}'

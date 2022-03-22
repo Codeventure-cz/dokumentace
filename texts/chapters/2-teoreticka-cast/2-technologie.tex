@@ -1,55 +1,55 @@
 \section{Technologie}
 
 \subsection{Unity}
-Unity je herní engine určený hlavně pro nováčky, ale i pro pokročilé programátory. Jako programovací jazyk Unity využívá C\# vyvíjený firmou Microsoft. Tento programovací jazyk je jedním z nejsnažších programovacích jazyků v současnosti na naučení pro začátečníky. \cite{Csharp} Je možné v něm vytvářet 2D i 3D aplikace. Výsledná hra je spustitelná na mnoha platformách, od počítačů až po mobilní zařízení.
+Unity je herní engine určený hlavně pro nováčky, ale i pro pokročilé programátory. Jako programovací jazyk Unity využívá C\# vyvíjený firmou Microsoft. Tento programovací jazyk je jedním z~nejsnažších programovacích jazyků v~současnosti na naučení pro začátečníky. \cite{Csharp} Je možné v~něm vytvářet 2D i 3D aplikace. Výsledná hra je spustitelná na mnoha platformách, od počítačů až po mobilní zařízení.
 
 \subsection{JavaScript}
 JavaScript je moderní programovací jazyk využívaný jak na frontendu, tak na backendu. Jazyk je tzv. interpretovaný jazyk, což znamená, že kód nekompiluje celý najednou, ale vykonává se řádek po řádku.
 %IDEA Nějak mi to od Koupila nedává smysl
 
 \subsection{TypeScript}
-TypeScript je pevně typový programovací jazyk, který je postaven nad JavaScriptem. \cite{TypeScript} Díky tomu je ve výsledné aplikaci méně chyb spojených s datovými typy, protože jsou kontrolovány během vývoje \cite{TypeScript}. Ve výsledku je kód transpilován zpět do JavaScriptu.
+TypeScript je pevně typový programovací jazyk, který je postaven nad JavaScriptem. \cite{TypeScript} Díky tomu je ve výsledné aplikaci méně chyb spojených s~datovými typy, protože jsou kontrolovány během vývoje \cite{TypeScript}. Ve výsledku je kód transpilován zpět do JavaScriptu.
 %TODO domyslet
 
 \subsection{React.js}
-React.js je JavaScriptový framework pro vývoj uživatelského rozhraní - UI. Slouží k tvorbě dynamických webových aplikací, nebo mobilních aplikací. Vývojářem tohoto frameworku je firma Meta (dříve známá jako firma Facebook). UI je děleno na menší komponenty, které mají svoji funkcionalitu a dají se mezi sebou jednoduše zaměňovat. Díky tomu není například potřeba načíst celou stránku při přechodu na jinou stránku, ale stačí pouze zaměnit komponenty které se na stránce změnily (např hlavička a patička zůstávají stále načteny, ale obsah stránky se změní).
+React.js je JavaScriptový framework pro vývoj uživatelského rozhraní - UI. Slouží k~tvorbě dynamických webových aplikací, nebo mobilních aplikací. Vývojářem tohoto frameworku je firma Meta (dříve známá jako firma Facebook). UI je děleno na menší komponenty, které mají svoji funkcionalitu a dají se mezi sebou jednoduše zaměňovat. Díky tomu není například potřeba načíst celou stránku při přechodu na jinou stránku, ale stačí pouze zaměnit komponenty které se na stránce změnily (např hlavička a patička zůstávají stále načteny, ale obsah stránky se změní).
 
 \subsection{Next.js}
-Next.js je JavaScriptový framework stavící na frameworku React.js. Je vytvářen společností Vercel. Tento framework usnadňuje vývojáři práci se stránkami a přidává nespočet výhod nad použitím samotného Reactu.js. Hlavním lákadlem je takzvaný "Server Side Rendering", což znamená, že počáteční kód, který je poslán klientovi, je nejdříve vykreslen na serveru, pak je odeslán v neživé podobě klientovi a až po té, co je stránka načtena, se z něj stává dynamická stránka pomocí React.js. Mezi další výhody patří například automatická optimalizace velikosti obrázků podle toho, jak velké je klient potřebuje, aby se nemusely posílat zbytečně velké a neoptimalizované obrázky.
+Next.js je JavaScriptový framework stavící na frameworku React.js. Je vytvářen společností Vercel. Tento framework usnadňuje vývojáři práci se stránkami a přidává nespočet výhod nad použitím samotného Reactu.js. Hlavním lákadlem je takzvaný "Server Side Rendering", což znamená, že počáteční kód, který je poslán klientovi, je nejdříve vykreslen na serveru, pak je odeslán v~neživé podobě klientovi a až po té, co je stránka načtena, se z~něj stává dynamická stránka pomocí React.js. Mezi další výhody patří například automatická optimalizace velikosti obrázků podle toho, jak velké je klient potřebuje, aby se nemusely posílat zbytečně velké a neoptimalizované obrázky.
 
 \subsection{Node.js}
-Node.js je backendové prostředí běžící na JavaScriptovém kódu. Výhodou oproti starším programovacím jazykům, které běží na serveru např. PHP, je, že aplikace neustále běží na pozadí. To umožňuje o dost jednodušší práci s časem (např. načasování určitých událostí neboli Cronjobů), nebo práci v reálném čase pomocí WebSocketů.
+Node.js je backendové prostředí běžící na JavaScriptovém kódu. Výhodou oproti starším programovacím jazykům, které běží na serveru např. PHP, je, že aplikace neustále běží na pozadí. To umožňuje o~dost jednodušší práci s~časem (např. načasování určitých událostí neboli Cronjobů), nebo práci v~reálném čase pomocí WebSocketů.
 
 \subsection{GraphQL}
-GraphQL je jazyk pro API rozhraní sloužící pro jednoduchou komunikaci mezi frontendem/aplikací a backendem. Typy dotazů se dělí na 3 skupiny - Query (získání dat ze serveru), Mutation (změna dat na serveru) a Subscription (zasílání dat v reálném čase pomocí WebSocketů).
+GraphQL je jazyk pro API rozhraní sloužící pro jednoduchou komunikaci mezi frontendem/aplikací a backendem. Typy dotazů se dělí na 3 skupiny - Query (získání dat ze serveru), Mutation (změna dat na serveru) a Subscription (zasílání dat v~reálném čase pomocí WebSocketů).
 
 \subsection{MongoDB}
-MongoDB je dokumentová databáze, která je používána na velké objemy dat. Data jsou zde ukládána do dokumentů ve formátu JSON. Databáze je jednoduše škálovatelná mezi více zařízeními v tzv. \uv{Replica Setu} (data jsou kopírovaná mezi všemi zařízeními, aby bylo možné při výpadku některého zařízení pokračovat dál v chodu aplikace). Replica set umožňuje i další pokročilé funkce.
+MongoDB je dokumentová databáze, která je používána na velké objemy dat. Data jsou zde ukládána do dokumentů ve formátu JSON. Databáze je jednoduše škálovatelná mezi více zařízeními v~tzv. \uv{Replica Setu} (data jsou kopírovaná mezi všemi zařízeními, aby bylo možné při výpadku některého zařízení pokračovat dál v~chodu aplikace). Replica set umožňuje i další pokročilé funkce.
 
 \subsection{Prisma}
-Prisma je ORM framework pro TypeScript. Hlavní částí je Prisma Client, která umožňuje komunikaci s databází. Dále je sem zahrnuta Prisma Migrate, která v případě SQL databáze dokáže zeditovat databázi tak, aby seděla podle schématu. Poslední částí je Prisma Studio, která umožňuje náhled do uložených dat.\cite{Prisma}
+Prisma je ORM framework pro TypeScript. Hlavní částí je Prisma Client, která umožňuje komunikaci s~databází. Dále je sem zahrnuta Prisma Migrate, která v~případě SQL databáze dokáže zeditovat databázi tak, aby seděla podle schématu. Poslední částí je Prisma Studio, která umožňuje náhled do uložených dat.\cite{Prisma}
 
 \subsection{Redis}
-Redis je databáze fungující na principu klíč a hodnota. Pod nějakým klíčovým slovem si můžeme uložit hodnotu a následně si můžeme hodnotu po zadání klíče zobrazit. Databáze funguje primárně v operační paměti počítače, takže je velmi rychá a efektivní. Využívá se zejména pro akceleraci chodu aplikace. Databáze také podporuje další módy, jako například Pub/Sub\cite{PubSub}. Tato funkcionalita je vhodná pro použití s technologií WebSocket, nebo lépe s GraphQL komponentou \uv{Subscription}.
+Redis je databáze fungující na principu klíč a hodnota. Pod nějakým klíčovým slovem si můžeme uložit hodnotu a následně si můžeme hodnotu po zadání klíče zobrazit. Databáze funguje primárně v~operační paměti počítače, takže je velmi rychá a efektivní. Využívá se zejména pro akceleraci chodu aplikace. Databáze také podporuje další módy, jako například Pub/Sub\cite{PubSub}. Tato funkcionalita je vhodná pro použití s~technologií WebSocket, nebo lépe s~GraphQL komponentou \uv{Subscription}.
 
 \subsection{Flutter}
-Flutter je framework od Googlu pro vytváření nativních, multiplatformních aplikací z jednoho kódu. \cite{Flutter} Jako programovací jazyk je zde použit Dart, který vyvíjí také Google. Flutter cílí primárně na zařízení s operačním systémem Android nebo iOS, ale i na Windows, Linux, MacOS nebo web. Výhodou je možnost vykreslení každého pixelu na obrazovce tak, jak chceme.
+Flutter je framework od Googlu pro vytváření nativních, multiplatformních aplikací z~jednoho kódu. \cite{Flutter} Jako programovací jazyk je zde použit Dart, který vyvíjí také Google. Flutter cílí primárně na zařízení s~operačním systémem Android nebo iOS, ale i na Windows, Linux, MacOS nebo web. Výhodou je možnost vykreslení každého pixelu na obrazovce tak, jak chceme.
 
 \subsection{Docker}
-Docker je platforma pro vytváření, správu a běh kontejnerů. Pomocí takzvaných \uv{Dockerfile} je možné definovat, jak bude výsledný kontejner sestaven a jak bude fungovat. Lze pomocí něj také spouštět samotné kontejnery, sestavené ať už námi, nebo komunitou. Díky němu lze spustit v podstatě jakoukoliv aplikaci pomocí jednoho příkazu.
+Docker je platforma pro vytváření, správu a běh kontejnerů. Pomocí takzvaných \uv{Dockerfile} je možné definovat, jak bude výsledný kontejner sestaven a jak bude fungovat. Lze pomocí něj také spouštět samotné kontejnery, sestavené ať už námi, nebo komunitou. Díky němu lze spustit v~podstatě jakoukoliv aplikaci pomocí jednoho příkazu.
 
 \subsection{Kubernetes}
 Kubernetes je platforma pro automatickou správu kontejnerů, jejich škálovatelnosti nebo automatického nasazení při nové verzi. Platforma Kubernetes je schopna přizpůsobit počet kontejnerů podle aktuální zátěže. 
 Původním výrobcem byl Google, kvůli jejich platformě GCP (Goole Cloud Platform) ale nyní patří pod Cloud Native Computing Foundation. Díky tomu, že je Kubernetes open-source, vznikají podobné verze, které se od původní trochu liší. Příkladem jsou: K3s, Minikube, OpenShift, Mirantis, Amazon EKS a další.
 
 \subsection{TensorFlow}
-TensorFlow je platforma pro strojové učení. Slouží pro trénování umělé inteligence a vytváření neuronových sítí. Tyto neuronové sítě jsou pak při přiložení vstupních dat využívány k predikci nových dat. Pro TensorFlow se píše kód primárně v programovacím jazyce Python, ale má i další implementace, například: JavaScript (TensorFlow.js), nebo Java (TensorFlow Lite).
+TensorFlow je platforma pro strojové učení. Slouží pro trénování umělé inteligence a vytváření neuronových sítí. Tyto neuronové sítě jsou pak při přiložení vstupních dat využívány k~predikci nových dat. Pro TensorFlow se píše kód primárně v~programovacím jazyce Python, ale má i další implementace, například: JavaScript (TensorFlow.js), nebo Java (TensorFlow Lite).
 
 \subsection{Blender}
 Blender je open source software pro tvorbu počítačové grafiky. Lze využít na 3D modelování, 2D/3D animace a mnoho dalšího.
 
 \subsection{Figma}
-Figma je grafický editor pro vytváření a prototypování grafických návrhů. Primárně se jedná o webový editor, který umožňuje offline funkce, které nabízí desktopová aplikace. Figma se zaměřuje na UX a UI s možností spolupráce v reálném čase.
+Figma je grafický editor pro vytváření a prototypování grafických návrhů. Primárně se jedná o~webový editor, který umožňuje offline funkce, které nabízí desktopová aplikace. Figma se zaměřuje na UX a UI s~možností spolupráce v~reálném čase.
 
 % \subsection{Photoshop}
 % Adobe Photoshop je rastrový grafikcý editor pro tvorbu rastrové grafiky. Photoshop patří do obsáhlé sady aplikací produktů Adobe.

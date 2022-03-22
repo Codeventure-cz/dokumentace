@@ -1,17 +1,17 @@
-Každý model je složen ze tří základních složek, a to \uv{vertices}, \uv{edges} a \uv{faces}, které definují celkový tvar a vzhled. Pro tvorbu modelů do hry je využit \uv{Low Poly} \cite{LowPoly} styl, díky čemuž mají výsledné objekty menší počet polygonů a jsou více optimalizované. Pro tvorbu objektů byl využit software Blender, který je ideální volbou pro tvorbu 3D grafických podkladů pro hru. Herní modely jsou využity v Unity a mobilní aplikaci.
+Každý model je složen ze tří základních složek, a to \uv{vertices}, \uv{edges} a \uv{faces}, které definují celkový tvar a vzhled. Pro tvorbu modelů do hry je využit \uv{Low Poly} \cite{LowPoly} styl, díky čemuž mají výsledné objekty menší počet polygonů a jsou více optimalizované. Pro tvorbu objektů byl využit software Blender, který je ideální volbou pro tvorbu 3D grafických podkladů pro hru. Herní modely jsou využity v~Unity a mobilní aplikaci.
 
 \subsection{Box modeling}
-\uv{Box modeling} \cite{BoxModeling} je technika modelování, při které jsou využity pouze základní objekty (krychle, koule, atd.). Tento objekt je následně použit k dosažení finálního tvaru objektu dle připraveného návrhu. Celkový cyklus je opakován s každým novým prvkem a jednotlivé modely jsou poté kombinovány k dosažení cílového tvaru.
+\uv{Box modeling} \cite{BoxModeling} je technika modelování, při které jsou využity pouze základní objekty (krychle, koule, atd.). Tento objekt je následně použit k~dosažení finálního tvaru objektu dle připraveného návrhu. Celkový cyklus je opakován s~každým novým prvkem a jednotlivé modely jsou poté kombinovány k~dosažení cílového tvaru.
 
 \subsection{Low poly}
 Pro tvorbu jednotlivých herních modelů je využit styl \uv{Low poly} \cite{LowPoly}, který nabízí vysokou optimalizaci pro herní využití. \uv{Low poly} modely vypadají jednoduché, přičemž představují základní tvar představované věci.
 
 \subsection{Jednotlivé herní modely}
-Na začátku tvoření modelů bylo hlavní vybrat časoprostor, kam celou hru zasadit. Herní modely jsou vymodelovány v prostředí příběhu o magickém světě a kouzelníkovi, který zachraňuje svoji planetu.
+Na začátku tvoření modelů bylo hlavní vybrat časoprostor, kam celou hru zasadit. Herní modely jsou vymodelovány v~prostředí příběhu o~magickém světě a kouzelníkovi, který zachraňuje svoji planetu.
 
 \subsubsection{Postavy}
 \paragraph{Hlavní postava}
-Model hlavní postavy je klíčový, protože představuje hráče a jeho postup hrou doprovází na každém kroku. Jak můžeme vidět na obr. \ref{fig:hlavni-postava}, tak model kouzelníka je hravý a jednoduchý. K modelu je vytvořena také sada animací pro jednotlivé pohybové operace ve hře.
+Model hlavní postavy je klíčový, protože představuje hráče a jeho postup hrou doprovází na každém kroku. Jak můžeme vidět na obr. \ref{fig:hlavni-postava}, tak model kouzelníka je hravý a jednoduchý. K~modelu je vytvořena také sada animací pro jednotlivé pohybové operace ve hře.
 
 \begin{figure}[h]
     \centering
@@ -21,7 +21,7 @@ Model hlavní postavy je klíčový, protože představuje hráče a jeho postup
 \end{figure}
 
 \paragraph{Nepřátelé}
-Každý ostrov má sadu nepřátel, které hráč může nalézt v jednotlivých úrovních. Nepřátelé mají za úkol hráči ztížit průchod úrovní. Jednotlivé nepřátelské jednotky mají sadu animací. Modely nepřátel můžeme vidět na obr. \ref{fig:nepritel-golem}, nebo obr. \ref{fig:nepritel-cerv}.
+Každý ostrov má sadu nepřátel, které hráč může nalézt v~jednotlivých úrovních. Nepřátelé mají za úkol hráči ztížit průchod úrovní. Jednotlivé nepřátelské jednotky mají sadu animací. Modely nepřátel můžeme vidět na obr. \ref{fig:nepritel-golem}, nebo obr. \ref{fig:nepritel-cerv}.
 
 \begin{figure}[h]
     \centering
@@ -38,7 +38,7 @@ Každý ostrov má sadu nepřátel, které hráč může nalézt v jednotlivých
 \end{figure}
 
 \subsubsection{Ostrovy}
-Jednotlivé modely ostrovů představují přírodní elementy. Dle jednotlivých elementů jsou zbarvené a doplněné o modely, které jsou ve spojitosti s tímto elementem vyobrazeny. Modely ostrovů jsou využity v mobilni aplikaci, jako je vidět na obr. \ref{fig:mobilni-aplikace-ostrov}. Dominantou každého ostrova je krystal, který musí hráč získat pro úspěšné splnění. Ukázka zmiňovaného modelu obr. \ref{fig:nature-island}.
+Jednotlivé modely ostrovů představují přírodní elementy. Dle jednotlivých elementů jsou zbarvené a doplněné o~modely, které jsou ve spojitosti s~tímto elementem vyobrazeny. Modely ostrovů jsou využity v~mobilni aplikaci, jako je vidět na obr. \ref{fig:mobilni-aplikace-ostrov}. Dominantou každého ostrova je krystal, který musí hráč získat pro úspěšné splnění. Ukázka zmiňovaného modelu obr. \ref{fig:nature-island}.
 
 \begin{figure}[h]
     \centering
@@ -50,12 +50,12 @@ Jednotlivé modely ostrovů představují přírodní elementy. Dle jednotlivýc
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.6\textwidth]{img/mobilni-aplikace-ostrov.jpg}
-    \caption{Model ostrova v mobilní aplikace.}
+    \caption{Model ostrova v~mobilní aplikace.}
     \label{fig:mobilni-aplikace-ostrov}
 \end{figure}
 
 \subsubsubsection{Úrovně}
-Jednotlivé úrovně tvoří mřížku, jako je vidět na obr. \ref{fig:model-levelu}. Každá úroveň představuje stejný element jako ostrov, ke kterému patří. Celá hra je umístěna na herních plošinách. Jednotlivé plošiny, které jsou rozmístněny v mřížce úrovně, slouží jako místo, na kterém se můžou nacházet modely herních postav, bariér, cest, či ukazatelů cíle. Prostředí okolo herních plošin je doplněno o modely mateřského ostrova. Úkázka herního prostředí úrovně je vidět na obr. \ref{fig:model-levelu}
+Jednotlivé úrovně tvoří mřížku, jako je vidět na obr. \ref{fig:model-levelu}. Každá úroveň představuje stejný element jako ostrov, ke kterému patří. Celá hra je umístěna na herních plošinách. Jednotlivé plošiny, které jsou rozmístněny v~mřížce úrovně, slouží jako místo, na kterém se můžou nacházet modely herních postav, bariér, cest, či ukazatelů cíle. Prostředí okolo herních plošin je doplněno o~modely mateřského ostrova. Úkázka herního prostředí úrovně je vidět na obr. \ref{fig:model-levelu}
 
 \begin{figure}[h]
     \centering
