@@ -7,6 +7,4 @@ V tomto repozitáři je napsána dokumentace pro projekt Codeventure.
 Na tomoto projektu je GitHub Action která automaticky při každému releasu generuje PDF a přidá ho do releasu.
 
 ## TODO
-- Dopsat technickou část
-- Dopsat teoretickou část
-- Doplnit obrázky
+- Kartičky do příloh
