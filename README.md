@@ -8,3 +8,6 @@ Na tomoto projektu je GitHub Action která automaticky při každému releasu ge
 
 ## TODO
 - Kartičky do příloh
+- Odkaz do závěru
+- Seřadit pojmy a technologie
+- Seřdait literaturu
