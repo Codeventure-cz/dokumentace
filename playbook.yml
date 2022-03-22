@@ -10,7 +10,7 @@
         recurse: yes
       register: files
     - name: Fix all files
-      shell: 'vlna -l {{ item.path }}'
+      shell: 'vlna -l -r {{ item.path }}'
       register: echo
       loop: '{{ files.files }}'
       changed_when: '"changes: 0" not in echo.stderr'
